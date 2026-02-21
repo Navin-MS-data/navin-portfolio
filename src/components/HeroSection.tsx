@@ -152,8 +152,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.035]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, #000 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -184,7 +183,6 @@ const HeroSection = () => {
         }}
       />
 
-
       {/* ── Main two-column layout ── */}
       <div
         className={`
@@ -204,7 +202,8 @@ const HeroSection = () => {
               ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
             `}
           >
-            <span className="text-foreground/30">&#47;&#47; </span>Hello, I&apos;m
+            <span className="text-foreground/30">&#47;&#47; </span>Hello,
+            I&apos;m
           </p>
 
           {/* Name */}

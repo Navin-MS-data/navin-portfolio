@@ -6,6 +6,7 @@ import { Badge } from "./ui/badge";
 const projects: {
   title: string;
   isNew?: boolean;
+  image?: string;
   description: string;
   tags: string[];
   githubUrl: string;
@@ -13,6 +14,7 @@ const projects: {
 }[] = [
   {
     title: "CRWN Clothing",
+    image: "/images/crwn.clothing.png",
     description:
       "A modern e-commerce application featuring user authentication, category-based product browsing, shopping cart, and Stripe payment integration.",
     tags: ["React", "Redux", "Firebase", "Stripe", "Styled Components"],
@@ -32,6 +34,20 @@ const ProjectsSection = () => (
           {"isNew" in project && project.isNew && (
             <div className="absolute -top-3 -right-3 bg-black text-white px-2 py-1 text-[10px] font-black uppercase tracking-tighter border-2 border-black z-10 rotate-12">
               LATEST WORK
+            </div>
+          )}
+
+          {/* Project image */}
+          {project.image && (
+            <div
+              className="w-full h-44 overflow-hidden border-b-2 border-black/10 mb-4 -mx-5 -mt-5 px-0"
+              style={{ width: "calc(100% + 40px)" }}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           )}
           <div>
@@ -54,7 +70,7 @@ const ProjectsSection = () => (
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-black/10">
+          <div className="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-foreground/10">
             <a
               href={project.githubUrl}
               target="_blank"

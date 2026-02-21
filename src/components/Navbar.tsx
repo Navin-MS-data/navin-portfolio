@@ -14,7 +14,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  // Track scroll position for background change
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -32,7 +31,7 @@ const Navbar = () => {
           }
         }
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { rootMargin: "-40% 0px -55% 0px" },
     );
 
     ids.forEach((id) => {
@@ -46,7 +45,9 @@ const Navbar = () => {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const handleNavClick = useCallback(
@@ -60,7 +61,7 @@ const Navbar = () => {
       }
       setOpen(false);
     },
-    []
+    [],
   );
 
   return (
@@ -69,9 +70,10 @@ const Navbar = () => {
         fixed top-4 left-4 right-4 z-50
         max-w-4xl mx-auto rounded-full
         transition-all duration-500
-        ${scrolled
-          ? "py-2.5 px-2 bg-white/40 backdrop-blur-xl backdrop-saturate-150 border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)]"
-          : "py-3 px-2 bg-white/20 backdrop-blur-lg backdrop-saturate-125 border border-white/20 shadow-[0_4px_16px_0_rgba(0,0,0,0.04)]"
+        ${
+          scrolled
+            ? "py-2.5 px-2 bg-white/40 backdrop-blur-xl backdrop-saturate-150 border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)]"
+            : "py-3 px-2 bg-white/20 backdrop-blur-lg backdrop-saturate-125 border border-white/20 shadow-[0_4px_16px_0_rgba(0,0,0,0.04)]"
         }
       `}
     >
@@ -87,7 +89,7 @@ const Navbar = () => {
           className="relative group"
         >
           <span className="font-black text-lg tracking-tighter text-foreground transition-opacity duration-300 group-hover:opacity-60">
-            NK
+            Navin
           </span>
           <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         </a>
@@ -102,9 +104,10 @@ const Navbar = () => {
               className={`
                 relative px-3 py-1.5 font-mono text-[11px] tracking-[0.15em] uppercase
                 transition-all duration-300 group
-                ${activeSection === link.href
-                  ? "text-foreground font-bold"
-                  : "text-foreground/50 hover:text-foreground"
+                ${
+                  activeSection === link.href
+                    ? "text-foreground font-bold"
+                    : "text-foreground/50 hover:text-foreground"
                 }
               `}
             >
@@ -154,9 +157,10 @@ const Navbar = () => {
           md:hidden fixed inset-0 top-0 bg-background/98 backdrop-blur-lg z-40
           flex flex-col items-center justify-center gap-2
           transition-all duration-500
-          ${open
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          ${
+            open
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           }
         `}
       >
@@ -168,13 +172,11 @@ const Navbar = () => {
             className={`
               relative font-black text-3xl tracking-tighter uppercase
               transition-all duration-500
-              ${open
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-              }
-              ${activeSection === link.href
-                ? "text-foreground"
-                : "text-foreground/30 hover:text-foreground"
+              ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+              ${
+                activeSection === link.href
+                  ? "text-foreground"
+                  : "text-foreground/30 hover:text-foreground"
               }
             `}
             style={{ transitionDelay: open ? `${150 + i * 60}ms` : "0ms" }}

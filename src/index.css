@@ -6,31 +6,31 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96%;
+    --background: 30 5% 88%;
     --foreground: 0 0% 5%;
 
-    --card: 0 0% 96%;
+    --card: 30 5% 88%;
     --card-foreground: 0 0% 5%;
 
-    --popover: 0 0% 96%;
+    --popover: 30 5% 88%;
     --popover-foreground: 0 0% 5%;
 
     --primary: 0 0% 5%;
     --primary-foreground: 0 0% 96%;
 
-    --secondary: 0 0% 90%;
+    --secondary: 30 5% 83%;
     --secondary-foreground: 0 0% 5%;
 
-    --muted: 0 0% 90%;
+    --muted: 30 5% 83%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 0 0% 90%;
+    --accent: 30 5% 83%;
     --accent-foreground: 0 0% 5%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 96%;
 
-    --border: 0 0% 20%;
+    --border: 0 0% 75%;
     --input: 0 0% 20%;
     --ring: 0 0% 5%;
 
@@ -59,6 +59,9 @@
     background-repeat: repeat;
     background-size: auto;
     background-attachment: fixed;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   html {
@@ -73,7 +76,7 @@
 
   .section-title {
     @apply font-black tracking-tighter leading-none text-foreground;
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(2.25rem, 5.5vw, 4.5rem);
   }
 
   .body-text {
@@ -163,15 +166,16 @@
   }
 
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 45s linear infinite;
   }
 
   .animate-marquee-reverse {
-    animation: marquee 30s linear infinite reverse;
+    animation: marquee 45s linear infinite reverse;
   }
 
   @keyframes bounceSlow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {

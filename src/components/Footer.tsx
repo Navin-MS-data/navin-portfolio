@@ -37,10 +37,10 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-2xl font-black uppercase tracking-tighter italic">
-              DURGA VARA PRASAD<span className="text-foreground">.....</span>
+              NAVIN KUMAR M S<span className="text-foreground">.....</span>
             </h2>
             <p className="text-foreground/60 max-w-sm leading-relaxed">
-              Full-stack developer focused on building high-performance web
+              Front-end developer focused on building high-performance web
               applications with clean, functional design and exceptional user
               experience.
             </p>
@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-6 px-4 md:px-12 lg:px-0">
+        <div className="pt-8 border-t border-foreground/10 flex flex-col md:flex-row justify-between items-center gap-6 px-4 md:px-12 lg:px-0">
           <p className="text-xs font-mono text-black/40 uppercase tracking-widest text-center md:text-left">
             © {currentYear} Navin Kumar M S
           </p>
