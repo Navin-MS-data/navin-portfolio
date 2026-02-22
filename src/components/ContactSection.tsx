@@ -1,22 +1,42 @@
 import { useState } from "react";
 import SectionBlock from "./SectionBlock";
-import {
-  Mail,
-  Copy,
-  Check,
-  MessageCircle,
-} from "lucide-react";
+import { Mail, Copy, Check, MessageCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_iml0dli";
+const EMAILJS_TEMPLATE_ID = "template_lzvyjbg";
+const EMAILJS_PUBLIC_KEY = "5XXd_paSaAG1wNz2W";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const phoneNumber = "+916369477490";
-    const text = `Name: ${form.name}\nEmail: ${form.email}\nMessage: ${form.message}`;
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank");
+    setStatus("sending");
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          to_email: "navinms0111@gmail.com",
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const copyEmail = () => {
@@ -26,7 +46,7 @@ const ContactSection = () => {
   };
 
   return (
-    <SectionBlock id="contact" title="Get in touch">
+    <SectionBlock id="contact" title="Get in touch" alternate>
       <div className="grid md:grid-cols-2 gap-8 md:gap-20">
         {/* Left Column: Contact Info */}
         <div className="space-y-8 md:space-y-10">
@@ -122,11 +142,26 @@ const ContactSection = () => {
 
           <button
             type="submit"
-            className="w-full group relative flex items-center justify-center gap-3 px-8 py-4 bg-black text-white font-mono uppercase tracking-widest overflow-hidden transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] hover:-translate-y-1 active:translate-y-0 active:shadow-none"
+            disabled={status === "sending"}
+            className="w-full group relative flex items-center justify-center gap-3 px-8 py-4 bg-black text-white font-mono uppercase tracking-widest overflow-hidden transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] hover:-translate-y-1 active:translate-y-0 active:shadow-none disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            <span className="relative z-10 font-bold">Send via WhatsApp</span>
-            <MessageCircle className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-            <div className="absolute inset-0 bg-green-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative z-10 font-bold">
+              {status === "sending"
+                ? "Sending..."
+                : status === "sent"
+                  ? "Message Sent!"
+                  : status === "error"
+                    ? "Failed, Try Again"
+                    : "Send Email"}
+            </span>
+            {status === "sending" ? (
+              <Loader2 className="w-4 h-4 relative z-10 animate-spin" />
+            ) : status === "sent" ? (
+              <Check className="w-4 h-4 relative z-10" />
+            ) : (
+              <Mail className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            )}
+            <div className="absolute inset-0 bg-black/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
         </form>
       </div>

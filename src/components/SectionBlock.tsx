@@ -3,10 +3,16 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 interface SectionBlockProps {
   id: string;
   title: string;
+  alternate?: boolean;
   children: ReactNode;
 }
 
-const SectionBlock = ({ id, title, children }: SectionBlockProps) => {
+const SectionBlock = ({
+  id,
+  title,
+  alternate = false,
+  children,
+}: SectionBlockProps) => {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -25,7 +31,7 @@ const SectionBlock = ({ id, title, children }: SectionBlockProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={alternate ? "bg-black/[0.035]" : ""}>
       <section
         id={id}
         ref={ref}
@@ -36,9 +42,7 @@ const SectionBlock = ({ id, title, children }: SectionBlockProps) => {
         <h2 className="section-title mb-12">{title}.</h2>
         {children}
       </section>
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="h-[2px] bg-black" />
-      </div>
+      <hr className="max-w-4xl mx-auto border-t border-foreground/10" />
     </div>
   );
 };

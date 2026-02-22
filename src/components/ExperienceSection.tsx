@@ -25,7 +25,7 @@ const certifications = [
 ];
 
 const CertificationsSection = () => (
-  <SectionBlock id="certifications" title="Certifications">
+  <SectionBlock id="certifications" title="Certifications" alternate>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {certifications.map((cert) => (
         <div key={cert.title} className="relative rounded-none overflow-hidden">
