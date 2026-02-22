@@ -12,17 +12,12 @@ const AboutSection = () => (
     <div className="space-y-10">
       {/* Lead paragraph */}
       <p className="text-foreground/80 text-lg md:text-xl leading-relaxed max-w-3xl font-light">
-        I'm a passionate Front End Developer with a strong foundation in
-        building clean, performant, and user-centric web experiences. I believe
-        in the power of minimal design and well-crafted code to communicate
-        ideas effectively.
+        Passionate Front End Developer eager to begin a career in web development. Proficient in key frontend technologies and passionate about creating seamless user experiences.
       </p>
 
       {/* Supporting text */}
       <p className="body-text max-w-2xl">
-        As a fresher, I bring enthusiasm, a hunger to learn, and a solid grasp
-        of modern front-end technologies — ready to contribute, grow, and make
-        an impact from day one.
+        Ready to collaborate and learn, contributing to innovative web applications and applying strong organizational and communication skills.
       </p>
 
       {/* Highlight cards */}

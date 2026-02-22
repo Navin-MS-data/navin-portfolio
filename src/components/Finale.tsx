@@ -17,7 +17,7 @@ const Finale = () => {
     },
     {
       icon: InstagramIcon,
-      href: "https://instagram.com/d_v_p6",
+      href: "https://www.instagram.com/navin__1110/",
       label: "Instagram",
     },
   ];

@@ -102,7 +102,7 @@ const Navbar = () => {
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               className={`
-                relative px-3 py-1.5 font-mono text-[11px] tracking-[0.15em] uppercase
+                relative px-3 py-1.5 font-sans text-[11px] tracking-[0.15em] uppercase
                 transition-all duration-300 group
                 ${
                   activeSection === link.href

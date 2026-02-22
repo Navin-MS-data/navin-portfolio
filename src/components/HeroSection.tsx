@@ -1,45 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import {
-  Github,
-  Linkedin,
-  Mail,
-  InstagramIcon,
   ArrowDownToLine,
   ArrowRight,
   ChevronDown,
 } from "lucide-react";
 
-const roles = [
-  "Front End Developer",
-  "React Engineer",
-  "UI/UX Enthusiast",
-  "Web App Builder",
-];
-
-const socialLinks = [
-  { Icon: Github, href: "https://github.com/Navin-MS-data", label: "GitHub" },
-  {
-    Icon: Linkedin,
-    href: "https://linkedin.com/in/navin-kumar-m-s-a94b97295",
-    label: "LinkedIn",
-  },
-  {
-    Icon: InstagramIcon,
-    href: "https://www.instagram.com/d_v_p6/",
-    label: "Instagram",
-  },
-  {
-    Icon: Mail,
-    href: "mailto:navinms0111@gmail.com",
-    label: "Email",
-  },
-];
-
 const HeroSection = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [cursorVisible, setCursorVisible] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -49,14 +15,6 @@ const HeroSection = () => {
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(t);
-  }, []);
-
-  // Blinking cursor
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setCursorVisible((prev) => !prev);
-    }, 530);
-    return () => clearInterval(cursorInterval);
   }, []);
 
   // Mouse tracking for parallax blobs
@@ -72,29 +30,6 @@ const HeroSection = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
-
-  // Typewriter effect
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-    const typeSpeed = isDeleting ? 35 : 75;
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(currentRole.slice(0, displayText.length + 1));
-        if (displayText.length === currentRole.length) {
-          setTimeout(() => setIsDeleting(true), 2200);
-        }
-      } else {
-        setDisplayText(currentRole.slice(0, displayText.length - 1));
-        if (displayText.length === 0) {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, typeSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex]);
 
   // Subtle particle / matrix rain
   useEffect(() => {
@@ -197,7 +132,7 @@ const HeroSection = () => {
           {/* Greeting */}
           <p
             className={`
-              font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-foreground/50 mb-4
+              font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-foreground/50 mb-4 font-bold
               transition-all duration-600 delay-150
               ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
             `}
@@ -228,7 +163,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          {/* Typewriter role */}
+          {/* Role */}
           <div
             className={`
               mt-7 h-9 flex items-center gap-1
@@ -240,14 +175,7 @@ const HeroSection = () => {
               {"< "}
             </span>
             <span className="font-mono text-base md:text-lg tracking-[0.1em] text-foreground font-semibold min-w-[2ch]">
-              {displayText}
-            </span>
-            <span
-              className={`font-mono text-base md:text-lg text-foreground font-light ${
-                cursorVisible ? "opacity-100" : "opacity-0"
-              } transition-opacity duration-100`}
-            >
-              |
+              Front End Developer
             </span>
             <span className="font-mono text-base md:text-lg tracking-[0.2em] text-foreground/40">
               {" />"}
@@ -262,8 +190,7 @@ const HeroSection = () => {
               ${mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}
             `}
           >
-            I craft fast, beautiful, and accessible web experiences — turning
-            designs into pixel-perfect, interactive products users love.
+            Passionate about building modern web apps with React — from clean UI design to smooth user interactions and scalable code.
           </p>
 
           {/* CTA buttons + socials */}
@@ -302,24 +229,6 @@ const HeroSection = () => {
               Resume
             </a>
 
-            {/* Divider */}
-            <div className="w-px h-8 bg-foreground/20 hidden sm:block" />
-
-            {/* Social icons */}
-            <div className="flex gap-3">
-              {socialLinks.map(({ Icon, href, label }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="group inline-flex items-center justify-center w-10 h-10 border border-foreground/25 text-foreground/60 transition-all duration-300 hover:border-black hover:text-black hover:bg-foreground/5 hover:scale-110"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
         </div>
 
