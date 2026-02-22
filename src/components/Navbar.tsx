@@ -75,8 +75,8 @@ const Navbar = () => {
         transition-all duration-500
         ${
           scrolled
-            ? "py-2.5 px-2 bg-black/80 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
-            : "py-3 px-2 bg-black/60 backdrop-blur-lg backdrop-saturate-125 border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+            ? "py-2.5 px-2 bg-black/50 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
+            : "py-3 px-2 bg-black/30 backdrop-blur-lg backdrop-saturate-125 border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]"
         }
       `}
     >
