@@ -75,8 +75,8 @@ const Navbar = () => {
         transition-all duration-500
         ${
           scrolled
-            ? "py-2.5 px-2 bg-black/50 backdrop-blur-xl backdrop-saturate-150 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
-            : "py-3 px-2 bg-black/30 backdrop-blur-lg backdrop-saturate-125 border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]"
+            ? "py-2.5 px-2 bg-white/40 backdrop-blur-xl backdrop-saturate-150 border border-black/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]"
+            : "py-3 px-2 bg-white/20 backdrop-blur-lg backdrop-saturate-125 border border-black/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.06)]"
         }
       `}
     >
@@ -91,10 +91,10 @@ const Navbar = () => {
           }}
           className="relative group"
         >
-          <span className="font-black text-lg tracking-tighter text-white transition-opacity duration-300 group-hover:opacity-60">
+          <span className="font-black text-lg tracking-tighter text-foreground transition-opacity duration-300 group-hover:opacity-60">
             Navin
           </span>
-          <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+          <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         </a>
 
         {/* Desktop links */}
@@ -109,8 +109,8 @@ const Navbar = () => {
                 transition-all duration-300 group
                 ${
                   activeSection === link.href
-                    ? "text-white font-bold"
-                    : "text-white/50 hover:text-white"
+                    ? "text-foreground font-bold"
+                    : "text-foreground/50 hover:text-foreground"
                 }
               `}
             >
@@ -118,7 +118,7 @@ const Navbar = () => {
               {/* Active / hover underline */}
               <span
                 className={`
-                  absolute bottom-0 left-3 right-3 h-px bg-white
+                  absolute bottom-0 left-3 right-3 h-px bg-foreground
                   transition-transform duration-300 origin-left
                   ${activeSection === link.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
                 `}
@@ -135,19 +135,19 @@ const Navbar = () => {
         >
           <span
             className={`
-              block w-5 h-[1.5px] bg-white transition-all duration-300 origin-center
+              block w-5 h-[1.5px] bg-foreground transition-all duration-300 origin-center
               ${open ? "rotate-45 translate-y-[6.5px]" : "group-hover:w-6"}
             `}
           />
           <span
             className={`
-              block w-5 h-[1.5px] bg-white transition-all duration-300
+              block w-5 h-[1.5px] bg-foreground transition-all duration-300
               ${open ? "opacity-0 scale-x-0" : "opacity-100"}
             `}
           />
           <span
             className={`
-              block w-5 h-[1.5px] bg-white transition-all duration-300 origin-center
+              block w-5 h-[1.5px] bg-foreground transition-all duration-300 origin-center
               ${open ? "-rotate-45 -translate-y-[6.5px]" : "group-hover:w-6"}
             `}
           />
