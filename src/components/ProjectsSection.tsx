@@ -30,6 +30,16 @@ const projects: {
     githubUrl: "https://github.com/Navin-MS-data/weather-app",
     liveUrl: "https://weather-app-iota-tawny-33.vercel.app/",
   },
+  {
+    title: "Job Application Tracker",
+    isNew: true,
+    image: "/images/job-application-tracker.png",
+    description:
+      "A full-featured job application tracking tool to manage and monitor job hunt progress — log applications, track statuses, and stay organized throughout the hiring process.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Local Storage"],
+    githubUrl: "https://github.com/Navin-MS-data/job-tracker",
+    liveUrl: "https://job-tracker-one-hazel.vercel.app/",
+  },
 ];
 
 const ProjectsSection = () => (
@@ -44,8 +54,7 @@ const ProjectsSection = () => (
           <div
             className="absolute inset-0 opacity-[0.04] pointer-events-none z-0"
             style={{
-              backgroundImage:
-                "radial-gradient(circle, #000 1.5px, transparent 1.5px)",
+              backgroundImage: "radial-gradient(circle, #000 1.5px, transparent 1.5px)",
               backgroundSize: "22px 22px",
             }}
           />
@@ -77,9 +86,7 @@ const ProjectsSection = () => (
               <h3 className="text-xl font-black text-foreground group-hover:underline decoration-4 underline-offset-4">
                 {project.title}
               </h3>
-              <p className="body-text mt-4 text-sm font-normal">
-                {project.description}
-              </p>
+              <p className="body-text mt-4 text-sm font-normal">{project.description}</p>
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map((tag) => (
                   <Badge
