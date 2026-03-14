@@ -11,8 +11,8 @@ import {
   SiTailwindcss,
   SiGithub,
   SiClaude,
+  SiGithubcopilot,
 } from "react-icons/si";
-import { VscGithubInverted } from "react-icons/vsc";
 
 type Skill = { name: string; icon?: IconType; image?: string; color: string };
 
@@ -31,7 +31,7 @@ const skills: Skill[] = [
 const aiTools: Skill[] = [
   { name: "Claude Code", icon: SiClaude, color: "#D4A27F" },
   { name: "Antigravity", image: "/Google_Antigravity-logo.svg", color: "#4285F4" },
-  { name: "GitHub Copilot", icon: VscGithubInverted, color: "#181717" },
+  { name: "GitHub Copilot", icon: SiGithubcopilot, color: "#181717" },
 ];
 
 const SkillCard = ({ name, icon: Icon, image, color }: Skill) => (
@@ -40,8 +40,7 @@ const SkillCard = ({ name, icon: Icon, image, color }: Skill) => (
     <div
       className="absolute inset-0 opacity-[0.04] pointer-events-none z-0"
       style={{
-        backgroundImage:
-          "radial-gradient(circle, #000 1.5px, transparent 1.5px)",
+        backgroundImage: "radial-gradient(circle, #000 1.5px, transparent 1.5px)",
         backgroundSize: "22px 22px",
       }}
     />
