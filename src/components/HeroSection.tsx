@@ -1,9 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import {
-  ArrowDownToLine,
-  ArrowRight,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowDownToLine, ArrowRight, ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -78,10 +74,7 @@ const HeroSection = () => {
       className="min-h-screen flex flex-col justify-center relative px-6 pt-20 overflow-hidden"
     >
       {/* Matrix rain canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-0 pointer-events-none"
-      />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
 
       {/* Dot grid overlay */}
       <div
@@ -96,24 +89,21 @@ const HeroSection = () => {
       <div
         className="absolute top-20 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none z-0 transition-transform duration-[2000ms] ease-out"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%)",
           transform: `translate(${mousePos.x * 30}px, ${mousePos.y * 20}px)`,
         }}
       />
       <div
         className="absolute bottom-10 -right-32 w-[420px] h-[420px] rounded-full pointer-events-none z-0 transition-transform duration-[2000ms] ease-out"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%)",
           transform: `translate(${mousePos.x * -25}px, ${mousePos.y * -15}px)`,
         }}
       />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0 transition-transform duration-[2500ms] ease-out"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,0,0,0.025) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(0,0,0,0.025) 0%, transparent 60%)",
           transform: `translate(calc(-50% + ${mousePos.x * 15}px), calc(-50% + ${mousePos.y * 10}px))`,
         }}
       />
@@ -137,8 +127,7 @@ const HeroSection = () => {
               ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
             `}
           >
-            <span className="text-foreground/30">&#47;&#47; </span>Hello,
-            I&apos;m
+            <span className="text-foreground/30">&#47;&#47; </span>Hello, I&apos;m
           </p>
 
           {/* Name */}
@@ -157,6 +146,7 @@ const HeroSection = () => {
                 WebkitTextStroke: "2px currentColor",
                 WebkitTextFillColor: "transparent",
                 opacity: 0.35,
+                whiteSpace: "nowrap",
               }}
             >
               Kumar M S.
@@ -190,7 +180,8 @@ const HeroSection = () => {
               ${mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}
             `}
           >
-            Passionate about building modern web apps with React — from clean UI design to smooth user interactions and scalable code.
+            Passionate about building modern web apps with React — from clean UI design to smooth
+            user interactions and scalable code.
           </p>
 
           {/* CTA buttons + socials */}
@@ -228,7 +219,6 @@ const HeroSection = () => {
               <ArrowDownToLine className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-300" />
               Resume
             </a>
-
           </div>
         </div>
 
@@ -276,15 +266,12 @@ const HeroSection = () => {
       >
         {/* Code comment in bottom-left */}
         <p className="font-mono text-[10px] text-foreground/35 leading-relaxed hidden md:block">
-          // portfolio.tsx &nbsp;|&nbsp; last_build:{" "}
-          {new Date().toISOString().split("T")[0]}
+          // portfolio.tsx &nbsp;|&nbsp; last_build: {new Date().toISOString().split("T")[0]}
         </p>
 
         {/* Scroll indicator */}
         <div className="hidden md:flex flex-col items-center gap-2 text-foreground/40 animate-bounce-slow">
-          <span className="font-mono text-[9px] tracking-[0.25em] uppercase">
-            scroll
-          </span>
+          <span className="font-mono text-[9px] tracking-[0.25em] uppercase">scroll</span>
           <ChevronDown className="w-4 h-4" />
         </div>
       </div>
