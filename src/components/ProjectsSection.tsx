@@ -32,7 +32,6 @@ const projects: {
   },
   {
     title: "Job Application Tracker",
-    isNew: true,
     image: "/images/job-application-tracker.png",
     description:
       "A full-featured job application tracking tool to manage and monitor job hunt progress — log applications, track statuses, and stay organized throughout the hiring process.",
