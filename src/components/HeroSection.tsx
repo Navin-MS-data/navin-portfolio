@@ -276,8 +276,8 @@ const HeroSection = () => {
 
                         {/* Secondary CTA */}
                         <a
-                            href="/Resume/NavinKumarMSResume.pdf"
-                            download="Navin Kumar Resume.pdf"
+                            href="/Resume/Navin_Kumar_M_S_Resume.pdf"
+                            download="Navin_Kumar_M_S_Resume.pdf"
                             className="group inline-flex items-center gap-2 px-7 py-3.5 border-2 border-foreground/30 text-foreground text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:border-black hover:bg-foreground/5 w-full sm:w-auto justify-center"
                         >
                             <ArrowDownToLine className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-300" />
