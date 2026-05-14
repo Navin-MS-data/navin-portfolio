@@ -190,7 +190,7 @@ const HeroSection = () => {
               transition-all duration-700 delay-200
               ${mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"}
             `}
-                        style={{ fontSize: "clamp(52px, 9vw, 120px)" }}
+                        style={{ fontSize: "clamp(38px, 12vw, 120px)" }}
                     >
                         Navin
                         <br />
@@ -242,7 +242,7 @@ const HeroSection = () => {
                     {/* CTA buttons + socials */}
                     <div
                         className={`
-              flex flex-wrap items-center gap-4 mt-10
+              flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 mt-8
               transition-all duration-700 delay-500
               ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
             `}
@@ -268,7 +268,7 @@ const HeroSection = () => {
                                     });
                                 }
                             }}
-                            className="group relative inline-flex items-center gap-2 px-7 py-3.5 border-2 border-black bg-black text-white text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.25)] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] cursor-pointer"
+                            className="group relative inline-flex items-center gap-2 px-7 py-3.5 border-2 border-black bg-black text-white text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-[5px_5px_0px_0px_rgba(0,0,0,0.25)] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] cursor-pointer w-full sm:w-auto justify-center"
                         >
                             View My Work
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -278,7 +278,7 @@ const HeroSection = () => {
                         <a
                             href="/Resume/NavinKumarMSResume.pdf"
                             download="Navin Kumar Resume.pdf"
-                            className="group inline-flex items-center gap-2 px-7 py-3.5 border-2 border-foreground/30 text-foreground text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:border-black hover:bg-foreground/5"
+                            className="group inline-flex items-center gap-2 px-7 py-3.5 border-2 border-foreground/30 text-foreground text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:border-black hover:bg-foreground/5 w-full sm:w-auto justify-center"
                         >
                             <ArrowDownToLine className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-300" />
                             Resume
@@ -289,14 +289,14 @@ const HeroSection = () => {
                 {/* ── RIGHT: Avatar ── */}
                 <div
                     className={`
-            flex-shrink-0
-            transition-all duration-1000 delay-300 ease-out
-            ${mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
+            flex-shrink-0 mt-4 md:mt-0
+        transition-all duration-1000 delay-300 ease-out
+        ${mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
           `}
                 >
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
+                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
                         {/* Offset decorative border */}
-                        <div className="absolute inset-0 border-2 border-black translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5" />
+                        <div className="absolute inset-0 border-2 border-black translate-x-2 translate-y-2 sm:translate-x-4 sm:translate-y-4 transition-transform duration-500 group-hover:translate-x-3 group-hover:translate-y-3 sm:group-hover:translate-x-5 sm:group-hover:translate-y-5" />
 
                         {/* Photo frame */}
                         <div className="relative w-full h-full border-2 border-black bg-white overflow-hidden transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5">

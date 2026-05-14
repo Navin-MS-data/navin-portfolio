@@ -25,7 +25,7 @@ const AboutSection = () => (
             </p>
 
             {/* Highlight cards */}
-            <div className="grid grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4">
                 {highlights.map(({ icon: Icon, label, value }) => (
                     <div
                         key={label}
@@ -46,12 +46,12 @@ const AboutSection = () => (
                         <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full pointer-events-none bg-gradient-to-tl from-black/5 to-transparent blur-2xl" />
 
                         {/* Card content */}
-                        <div className="group relative z-10 bg-white/60 border border-black/8 p-4 transition-all duration-300 hover:border-black/30 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.08)]">
-                            <Icon className="w-4 h-4 text-foreground/30 mb-3 group-hover:text-foreground/60 transition-colors duration-300" />
-                            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/40 mb-1">
+                        <div className="group relative z-10 bg-white/60 border border-black/8 p-2 sm:p-4 transition-all duration-300 hover:border-black/30 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.08)]">
+                            <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-foreground/30 mb-3 group-hover:text-foreground/60 transition-colors duration-300" />
+                            <p className="font-mono text-[8px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.2em] uppercase text-foreground/40 mb-1">
                                 {label}
                             </p>
-                            <p className="font-bold text-sm tracking-tight text-foreground">
+                            <p className="font-bold text-xs sm:text-sm tracking-tight text-foreground">
                                 {value}
                             </p>
                         </div>
